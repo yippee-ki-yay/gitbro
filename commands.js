@@ -25,12 +25,17 @@ module.exports = (intent, values) => {
     break;
 
     case 'commit':
+        console.log(values[0]);
         let param = values[0] ? values[0] : "";
-        return {command: `git commit -m '${param}'`, out: ""}
+        return {command: `git commit -m "${param}"`, out: "Commited!"}
     break;
 
     case 'push_origin':
         return {command: `git push origin HEAD`, out: ""}
+    break;
+
+    case 'ls':
+        return {command: `git log --oneline --decorate`, out: ""}
     break;
 
     default:

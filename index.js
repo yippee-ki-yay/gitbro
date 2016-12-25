@@ -31,6 +31,10 @@ const exec = require('child_process').exec;
           console.log(stdout);
         }
 
+        if(stderr) {
+          console.log(stderr);
+        }
+
       });
     } else {
       console.log("Lol wut?");
@@ -62,7 +66,7 @@ function getInput() {
 }
 
 function getValues(response) {
-  let query = response.entities.search_query;
+  let query = response.entities.agenda_entry;
 
   if(query) {
     return query.map(e => {return e.value;})
