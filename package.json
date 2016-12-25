@@ -1,0 +1,22 @@
+{
+  "name": "gitbro",
+  "version": "1.0.0",
+  "description": "Conversational interface for git ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node ./index.js"
+  },
+  "author": "Nenad Palinkasevic",
+  "license": "ISC",
+  "dependencies": {
+    "node-wit": "^4.2.0",
+    "babel-cli": "^6.16.0",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-2": "^6.17.0"
+  },
+  "bin" : {
+    "gitbro": "./index.js"
+  }
+}
