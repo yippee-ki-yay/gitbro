@@ -26,9 +26,10 @@ You get the point it tries and figures out what you meant to say so each command
 
 - To add/stage all files
 ```
-'gitbro stage all file' ```
+'gitbro stage all file'
+```
 
-- To commit
+To commit
 ```
 'gitbro commit "some commit msg"'
 ```
@@ -39,8 +40,9 @@ You get the point it tries and figures out what you meant to say so each command
 ```
 
 - What branch am I at?
+
 ```
-'gitbro what branch am I at???'
+gitbro what branch am I at???
 ```
 
 - List commits (real nice)
