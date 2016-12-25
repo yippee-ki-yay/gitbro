@@ -29,7 +29,7 @@ You get the point it tries and figures out what you meant to say so each command
 'gitbro stage all file'
 ```
 
-To commit
+- To commit
 ```
 'gitbro commit "some commit msg"'
 ```
@@ -42,7 +42,7 @@ To commit
 - What branch am I at?
 
 ```
-gitbro what branch am I at???
+'gitbro what branch am I at???'
 ```
 
 - List commits (real nice)
