@@ -6,6 +6,7 @@ const {Wit, log} = require("node-wit");
 
 const client = new Wit({accessToken: '6XQFDRJVZG2DV54ROJMEWHSLNPAKQ3HM'});
 
+const commands = require('./commands');
 const exec = require('child_process').exec;
 
 (async function main() {
@@ -17,11 +18,11 @@ const exec = require('child_process').exec;
 
     let intent = response.entities.intent[0];
 
-    console.log(response);
+    let values = getValues(response);
 
     if(intent) {
 
-      let {command, out} = mapCommand(intent);
+      let {command, out} = commands(intent, values);
 
       exec(command, (err, stdout, stderr) => {
         if(out) {
@@ -39,37 +40,6 @@ const exec = require('child_process').exec;
   }
 
 })();
-
-function mapCommand(intent) {
-  switch (intent.value) {
-    case 'init':
-        return {command: "git init", out: "Git repo initilaized in this folder"}
-    break;
-
-    case 'status':
-        return {command: "git status", out: ""}
-    break;
-
-    case 'stage':
-        return {command: "git add -A", out: "All files staged/added"}
-    break;
-
-    case 'curr_branch':
-        return {command: "git branch | grep \\*", out: ""}
-    break;
-
-    case 'ignore':
-        return {command: "git status", out: ""}
-    break;
-
-    case 'unstage':
-        return {command: "git status", out: ""}
-    break;
-
-    default:
-      return {command: "", out: "Doesn't look like anything to me"}
-  }
-}
 
 function getInput() {
   const args = process.argv;
@@ -89,4 +59,14 @@ function getInput() {
   }
 
   return userCommand;
+}
+
+function getValues(response) {
+  let query = response.entities.search_query;
+
+  if(query) {
+    return query.map(e => {return e.value;})
+  }
+
+  return [];
 }
